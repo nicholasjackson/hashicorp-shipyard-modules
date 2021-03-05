@@ -1,3 +1,7 @@
+variable "consul_helm_values" {
+  default = "${file_dir()}/helm/consul_values.yaml"
+}
+
 variable "consul_api_port" {
   default = 8500
 }

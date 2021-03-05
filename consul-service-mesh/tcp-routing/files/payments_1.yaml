@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payments
+  namespace: app
+  labels:
+    app: payments
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payments
+  template:
+    metadata:
+      labels:
+        app: payments
+        metrics: enabled
+      annotations:
+        "consul.hashicorp.com/connect-inject": "true"
+    spec:
+      containers:
+      - name: payments
+        image: nicholasjackson/fake-service:v0.21.0
+        ports:
+        - containerPort: 9090
+        env:
+        - name: "LISTEN_ADDR"
+          value: "127.0.0.1:9090"
+        - name: "NAME"
+          value: "api"
+        - name: "MESSAGE"
+          value: "Response from Payments"

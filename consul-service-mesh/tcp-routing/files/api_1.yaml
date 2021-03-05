@@ -1,0 +1,36 @@
+---
+# Web frontend
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  namespace: app
+  labels:
+    app: api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+        metrics: enabled
+      annotations:
+        "consul.hashicorp.com/connect-inject": "true"
+    spec:
+      containers:
+      - name: api
+        image: nicholasjackson/fake-service:v0.21.0
+        ports:
+        - containerPort: 9090
+        env:
+        - name: "LISTEN_ADDR"
+          value: "0.0.0.0:9090"
+        - name: "UPSTREAM_URIS"
+          value: "http://localhost:9091"
+        - name: "NAME"
+          value: "api"
+        - name: "MESSAGE"
+          value: "Hello World"
