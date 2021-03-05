@@ -16,9 +16,10 @@ jobs:
     strategy:
       matrix:
         folder: [
-          'consul/',
-          'vault/',
-          'monitoring/',
+          'consul-service-mesh/tcp-routing/',
+          'modules/consul/',
+          'modules/vault/',
+          'modules/monitoring/',
         ]
 
     steps:

@@ -23,7 +23,7 @@ ingress "vault" {
     
     config {
       cluster = "k8s_cluster.${var.vault_k8s_cluster}"
-      address = "vault-server.default.svc"
+      address = "vault-ui.default.svc"
       port = 8200
     }
   }

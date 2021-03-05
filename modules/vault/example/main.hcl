@@ -20,3 +20,7 @@ network "dc1" {
 module "vault" {
   source = "../"
 }
+
+output "KUBECONFIG" {
+  value = k8s_config("dc1")
+}

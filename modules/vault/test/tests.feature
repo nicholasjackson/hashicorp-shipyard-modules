@@ -8,4 +8,4 @@ Scenario: Standard Blueprint
       | name                | type        |
       | dc1                 | network     |
       | dc1                 | k8s_cluster |
-    And a HTTP call to "http://localhost:8500/v1/status/leader" should result in status 200
+    And a HTTP call to "http://localhost:8200/v1/sys/health" should result in status 200
