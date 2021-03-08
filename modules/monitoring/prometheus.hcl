@@ -1,7 +1,7 @@
 helm "prometheus" {
   cluster = "k8s_cluster.${var.monitoring_k8s_cluster}"
   
-  chart_name = "prometheus-stack"
+  chart_name = "prometheus"
 
   chart = "github.com/prometheus-community/helm-charts/charts//kube-prometheus-stack"
 
@@ -41,7 +41,7 @@ ingress "prometheus" {
     
     config {
       cluster = "k8s_cluster.${var.monitoring_k8s_cluster}"
-      address = "prometheus-stack-kube-prom-prometheus.default.svc"
+      address = "prometheus-kube-prom-prometheus.default.svc"
       port = 9090
     }
   }
