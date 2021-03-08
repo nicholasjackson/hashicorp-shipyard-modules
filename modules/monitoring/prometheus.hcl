@@ -12,7 +12,7 @@ helm "prometheus" {
   
   health_check {
     timeout = "90s"
-    pods = ["release=prometheus-stack"]
+    pods = ["release=prometheus"]
   }
 }
 
