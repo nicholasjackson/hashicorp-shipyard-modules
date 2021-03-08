@@ -19,6 +19,7 @@ jobs:
           'consul-service-mesh/tcp-routing/',
           'modules/consul/',
           'modules/vault/',
+          'modules/smi-controller/',
           'modules/monitoring/',
         ]
 
