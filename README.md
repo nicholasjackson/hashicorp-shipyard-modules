@@ -56,3 +56,21 @@ module "monitoring" {
   source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//monitoring"
 }
 ```
+
+### SMI Controller ./modules/smicontroller
+
+This module installs cert manager and a SMI controller to the specified
+Kubernetes cluster
+
+#### Use
+
+```javascript
+// name of the k8s cluster to install module to
+variable "smi_controller_k8s_cluster" {
+  default = "dc1"
+}
+
+module "smi_controller" {
+  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//smi-controller"
+}
+```
