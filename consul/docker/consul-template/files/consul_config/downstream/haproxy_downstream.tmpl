@@ -1,0 +1,20 @@
+global
+    maxconn 50000
+
+defaults
+    timeout connect 10s
+    timeout client 30s
+    timeout server 30s
+    log global
+    mode http
+    option httplog
+    maxconn 3000
+
+frontend proxy
+    bind 0.0.0.0:80
+    use_backend upstream if { path_beg /upstream }
+
+backend upstream 
+{{- range service "upstream"}}
+    server {{.Node}} {{.Address}}:{{.Port}}
+{{- end}}

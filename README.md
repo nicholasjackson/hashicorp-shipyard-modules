@@ -1,7 +1,22 @@
 # Shipyard Blueprints for HashiCorp Applications
 
+## Examples
+
+## TCP Routing with Consul Service Mesh on Kubernetes
+[./consul/kubernetes/consul-template](./consul/kubernetes/consul-template)
+
+This simple example shows how to connect two services using Consul Service Mesh 
+on Kubernetes.
+
+## Load balancing with HAProxy and Consul Template
+[./consul/docker/consul-template](./consul/docker/consul-template)
+
+This simple example shows how to load balance upstream services using Consul Template 
+and HAProxy.
+
 ## Modules
-### Consul Service Mesh Kubernetes ./modules/consul
+### Consul Service Mesh Kubernetes 
+[./modules/kubernetes/consul](./modules/kubernetes/consul)
 
 This module installs and configures Consul Service Mesh using the HashiCorp
 Helm chart with CRDs enabled.
@@ -17,11 +32,12 @@ variable "consul_k8s_cluster" {
 }
 
 module "consul" {
-  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//consul"
+  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules/kubernetes//consul"
 }
 ```
 
-### Vault Kubernetes ./modules/vault
+### Vault Kubernetes 
+[./modules/kubernetes/vault](./modules/kubernetes/vault)
 
 This module installs and configures Vault using the HashiCorp Helm chart in 
 `dev` mode.
@@ -35,11 +51,12 @@ variable "vault_k8s_cluster" {
 }
 
 module "vault" {
-  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//vault"
+  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules/kubernetes//vault"
 }
 ```
 
-### Monitoring Kubernetes ./modules/monitoring
+### Monitoring Kubernetes 
+[./modules/kubernetes/monitoring](./modules/kubernetes/monitoring)
 
 This module installs Grafana, Loki, and Prometheus to the specified
 kubernetes cluster
@@ -53,11 +70,12 @@ variable "monitoring_k8s_cluster" {
 }
 
 module "monitoring" {
-  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//monitoring"
+  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules/kubernetes//monitoring"
 }
 ```
 
-### SMI Controller ./modules/smicontroller
+### SMI Controller 
+[./modules/kubernetes/smi-controller](./modules/kubernetes/smi-controller)
 
 This module installs cert manager and a SMI controller to the specified
 Kubernetes cluster
@@ -71,6 +89,6 @@ variable "smi_controller_k8s_cluster" {
 }
 
 module "smi_controller" {
-  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules//smi-controller"
+  source = "github.com/nicholasjackson/hashicorp-shipyard-modules/modules/kubernetes//smi-controller"
 }
 ```

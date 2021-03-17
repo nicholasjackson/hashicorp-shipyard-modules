@@ -17,7 +17,7 @@ EOF
 
 helm "smi-controler" {
   # wait for certmanager to be installed and the template to be processed
-  depends_on = ["helm.cert-manager", "template.smi_controller_config"]
+  depends_on = ["template.smi_controller_config", "helm.cert-manager"]
 
   cluster = "k8s_cluster.${var.smi_controller_k8s_cluster}"
   namespace = "smi"
