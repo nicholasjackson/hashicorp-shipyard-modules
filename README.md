@@ -1,5 +1,7 @@
 # Shipyard Blueprints for HashiCorp Applications
 
+Requires Shipyard: https://shipyard.run
+
 ## Examples
 
 ## TCP Routing with Consul Service Mesh on Kubernetes
